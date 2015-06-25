@@ -1,0 +1,21 @@
+IDIR =./
+CC=gcc
+CFLAGS=-I$(IDIR)
+
+ODIR=obj
+LDIR =../lib
+
+LIBS=-lm
+
+all: client server
+
+client: client.c
+	gcc -o $@ $^ $(CFLAGS) $(LIBS)
+
+server: server.c
+	gcc -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+
+clean:
+	rm -f client server
